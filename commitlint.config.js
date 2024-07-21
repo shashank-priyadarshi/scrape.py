@@ -70,8 +70,9 @@ module.exports = {
             2,
             'always',
             [
-                'backend',
-                'frontend',
+                'server',
+                'packages',
+                'core',
                 'entities',
                 'setup'
             ]
