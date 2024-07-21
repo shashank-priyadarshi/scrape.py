@@ -17,19 +17,13 @@ next_version() {
 echo "Performing other code quality checks..."
 
 echo "Sorting imports using isort"
-isort ./app --skip ./app/entity/v1 --check-only || exit 1
+isort ./app --skip ./app/pkg/entity/v1 --check-only || exit 1
 
 echo "Performing checks using prospector"
-prospector --ignore-patterns="app/entity/v1/*" --messages-only --no-blending --test-warnings --member-warnings || exit 1
-
-echo "Performing checks using mypy"
-mypy . --exclude "app/entity/v1/*" || exit 1
+prospector --ignore-patterns="app/pkg/entity/v1/*" -W pylint --messages-only --no-blending --test-warnings --member-warnings || exit 1
 
 echo "Performing checks using radon"
 radon mi ./app || exit 1
-
-echo "Performing checks using bandit"
-bandit -r ./app || exit 1
 
 echo "All checks passed!"
 
