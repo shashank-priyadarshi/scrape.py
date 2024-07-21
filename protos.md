@@ -25,9 +25,9 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| title | [string](#string) |  | Description of the product(required) |
-| price | [string](#string) |  | Price of the produce(required) |
-| imageSource | [string](#string) |  | URL or path to the product image(required) |
+| title | [string](#string) |  | Description of the product |
+| price | [string](#string) |  | Price of the produce |
+| imageSource | [string](#string) |  | URL or path to the product image |
 | createdAt | [google.protobuf.Timestamp](#google-protobuf-Timestamp) | optional | Timestamp when product entry was first persisted |
 | updatedAt | [google.protobuf.Timestamp](#google-protobuf-Timestamp) | optional | Timestamp when product entry was last updated |
 
