@@ -4,6 +4,21 @@ package scrape.py.v1;
 
 import "google/protobuf/timestamp.proto";
 
+message product {
+  // Title or name of the product
+  string title = 1;
+  //  Price of the product as a string
+  //  It can include currency symbols.
+  string price = 2;
+  // URL or path to the product image
+  string imageSource = 3;
+
+  // Timestamp when the product entry was first created
+  optional google.protobuf.Timestamp createdAt = 4;
+  // Timestamp when the product entry was last updated
+  optional google.protobuf.Timestamp updatedAt = 5;
+}
+
 message request {
   // The URL of the web page to be scraped.
   string url = 1;
@@ -18,17 +33,43 @@ message request {
   optional int32 retryDuration = 4;
 }
 
-message product {
-  // Title or name of the product
-  string title = 1;
-  //  Price of the product as a string
-  //  It can include currency symbols.
-  string price = 2;
-  // URL or path to the product image
-  string imageSource = 3;
+message Response {
+  // HTTP status code
+  int32 status_code = 1;
 
-  // Timestamp when the product entry was first created
-  optional google.protobuf.Timestamp createdAt = 4;
-  // Timestamp when the product entry was last updated
-  optional google.protobuf.Timestamp updatedAt = 5;
+  // User-friendly error message
+  string message = 2;
+
+  // Specific error details
+  oneof error_details {
+    InternalServerError internal_error = 3;
+    ValidationError validation_error = 4;
+    ResourceNotFound not_found = 5;
+    AuthenticationError unauthorized = 6;
+  }
+}
+
+message InternalServerError {
+  // Optional additional details about the internal server error
+  string details = 1;
+}
+
+message ValidationError {
+  // List of validation errors
+  repeated FieldViolation violations = 1;
+}
+
+message FieldViolation {
+  string field = 1; // Name of the field with the error
+  string description = 2; // Description of the validation error
+}
+
+message ResourceNotFound {
+  string resource_type = 1; // Type of resource not found (e.g., "user", "product")
+  string resource_id = 2; // Optional ID of the missing resource
+}
+
+message AuthenticationError {
+  // Optional reason for authentication failure (e.g., "invalid_credentials")
+  string reason = 1;
 }

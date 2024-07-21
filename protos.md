@@ -4,6 +4,12 @@
 ## Table of Contents
 
 - [common.proto](#common-proto)
+    - [AuthenticationError](#scrape-py-v1-AuthenticationError)
+    - [FieldViolation](#scrape-py-v1-FieldViolation)
+    - [InternalServerError](#scrape-py-v1-InternalServerError)
+    - [ResourceNotFound](#scrape-py-v1-ResourceNotFound)
+    - [Response](#scrape-py-v1-Response)
+    - [ValidationError](#scrape-py-v1-ValidationError)
     - [product](#scrape-py-v1-product)
     - [request](#scrape-py-v1-request)
   
@@ -15,6 +21,103 @@
 <p align="right"><a href="#top">Top</a></p>
 
 ## common.proto
+
+
+
+<a name="scrape-py-v1-AuthenticationError"></a>
+
+### AuthenticationError
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| reason | [string](#string) |  | Optional reason for authentication failure (e.g., &#34;invalid_credentials&#34;) |
+
+
+
+
+
+
+<a name="scrape-py-v1-FieldViolation"></a>
+
+### FieldViolation
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| field | [string](#string) |  | Name of the field with the error |
+| description | [string](#string) |  | Description of the validation error |
+
+
+
+
+
+
+<a name="scrape-py-v1-InternalServerError"></a>
+
+### InternalServerError
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| details | [string](#string) |  | Optional additional details about the internal server error |
+
+
+
+
+
+
+<a name="scrape-py-v1-ResourceNotFound"></a>
+
+### ResourceNotFound
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| resource_type | [string](#string) |  | Type of resource not found (e.g., &#34;user&#34;, &#34;product&#34;) |
+| resource_id | [string](#string) |  | Optional ID of the missing resource |
+
+
+
+
+
+
+<a name="scrape-py-v1-Response"></a>
+
+### Response
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status_code | [int32](#int32) |  | HTTP status code |
+| message | [string](#string) |  | User-friendly error message |
+| internal_error | [InternalServerError](#scrape-py-v1-InternalServerError) |  |  |
+| validation_error | [ValidationError](#scrape-py-v1-ValidationError) |  |  |
+| not_found | [ResourceNotFound](#scrape-py-v1-ResourceNotFound) |  |  |
+| unauthorized | [AuthenticationError](#scrape-py-v1-AuthenticationError) |  |  |
+
+
+
+
+
+
+<a name="scrape-py-v1-ValidationError"></a>
+
+### ValidationError
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| violations | [FieldViolation](#scrape-py-v1-FieldViolation) | repeated | List of validation errors |
+
+
+
 
 
 

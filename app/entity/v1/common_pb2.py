@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0c\x63ommon.proto\x12\x0cscrape.py.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x93\x01\n\x07request\x12\x10\n\x03url\x18\x01 \x01(\tR\x03url\x12\x19\n\x05proxy\x18\x02 \x01(\tH\x00R\x05proxy\x88\x01\x01\x12\x14\n\x05\x64\x65pth\x18\x03 \x01(\x05R\x05\x64\x65pth\x12)\n\rretryDuration\x18\x04 \x01(\x05H\x01R\rretryDuration\x88\x01\x01\x42\x08\n\x06_proxyB\x10\n\x0e_retryDuration\"\xf1\x01\n\x07product\x12\x14\n\x05title\x18\x01 \x01(\tR\x05title\x12\x14\n\x05price\x18\x02 \x01(\tR\x05price\x12 \n\x0bimageSource\x18\x03 \x01(\tR\x0bimageSource\x12=\n\tcreatedAt\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00R\tcreatedAt\x88\x01\x01\x12=\n\tupdatedAt\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\tupdatedAt\x88\x01\x01\x42\x0c\n\n_createdAtB\x0c\n\n_updatedAtBq\n\x10\x63om.scrape.py.v1B\x0b\x43ommonProtoP\x01\xa2\x02\x03SPX\xaa\x02\x0cScrape.Py.V1\xca\x02\x0cScrape\\Py\\V1\xe2\x02\x18Scrape\\Py\\V1\\GPBMetadata\xea\x02\x0eScrape::Py::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0c\x63ommon.proto\x12\x0cscrape.py.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf1\x01\n\x07product\x12\x14\n\x05title\x18\x01 \x01(\tR\x05title\x12\x14\n\x05price\x18\x02 \x01(\tR\x05price\x12 \n\x0bimageSource\x18\x03 \x01(\tR\x0bimageSource\x12=\n\tcreatedAt\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00R\tcreatedAt\x88\x01\x01\x12=\n\tupdatedAt\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\tupdatedAt\x88\x01\x01\x42\x0c\n\n_createdAtB\x0c\n\n_updatedAt\"\x93\x01\n\x07request\x12\x10\n\x03url\x18\x01 \x01(\tR\x03url\x12\x19\n\x05proxy\x18\x02 \x01(\tH\x00R\x05proxy\x88\x01\x01\x12\x14\n\x05\x64\x65pth\x18\x03 \x01(\x05R\x05\x64\x65pth\x12)\n\rretryDuration\x18\x04 \x01(\x05H\x01R\rretryDuration\x88\x01\x01\x42\x08\n\x06_proxyB\x10\n\x0e_retryDuration\"\xf6\x02\n\x08Response\x12\x1f\n\x0bstatus_code\x18\x01 \x01(\x05R\nstatusCode\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\x12J\n\x0einternal_error\x18\x03 \x01(\x0b\x32!.scrape.py.v1.InternalServerErrorH\x00R\rinternalError\x12J\n\x10validation_error\x18\x04 \x01(\x0b\x32\x1d.scrape.py.v1.ValidationErrorH\x00R\x0fvalidationError\x12=\n\tnot_found\x18\x05 \x01(\x0b\x32\x1e.scrape.py.v1.ResourceNotFoundH\x00R\x08notFound\x12G\n\x0cunauthorized\x18\x06 \x01(\x0b\x32!.scrape.py.v1.AuthenticationErrorH\x00R\x0cunauthorizedB\x0f\n\rerror_details\"/\n\x13InternalServerError\x12\x18\n\x07\x64\x65tails\x18\x01 \x01(\tR\x07\x64\x65tails\"O\n\x0fValidationError\x12<\n\nviolations\x18\x01 \x03(\x0b\x32\x1c.scrape.py.v1.FieldViolationR\nviolations\"H\n\x0e\x46ieldViolation\x12\x14\n\x05\x66ield\x18\x01 \x01(\tR\x05\x66ield\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\"X\n\x10ResourceNotFound\x12#\n\rresource_type\x18\x01 \x01(\tR\x0cresourceType\x12\x1f\n\x0bresource_id\x18\x02 \x01(\tR\nresourceId\"-\n\x13\x41uthenticationError\x12\x16\n\x06reason\x18\x01 \x01(\tR\x06reasonBq\n\x10\x63om.scrape.py.v1B\x0b\x43ommonProtoP\x01\xa2\x02\x03SPX\xaa\x02\x0cScrape.Py.V1\xca\x02\x0cScrape\\Py\\V1\xe2\x02\x18Scrape\\Py\\V1\\GPBMetadata\xea\x02\x0eScrape::Py::V1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,8 +33,20 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'common_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\020com.scrape.py.v1B\013CommonProtoP\001\242\002\003SPX\252\002\014Scrape.Py.V1\312\002\014Scrape\\Py\\V1\342\002\030Scrape\\Py\\V1\\GPBMetadata\352\002\016Scrape::Py::V1'
-  _globals['_REQUEST']._serialized_start=64
-  _globals['_REQUEST']._serialized_end=211
-  _globals['_PRODUCT']._serialized_start=214
-  _globals['_PRODUCT']._serialized_end=455
+  _globals['_PRODUCT']._serialized_start=64
+  _globals['_PRODUCT']._serialized_end=305
+  _globals['_REQUEST']._serialized_start=308
+  _globals['_REQUEST']._serialized_end=455
+  _globals['_RESPONSE']._serialized_start=458
+  _globals['_RESPONSE']._serialized_end=832
+  _globals['_INTERNALSERVERERROR']._serialized_start=834
+  _globals['_INTERNALSERVERERROR']._serialized_end=881
+  _globals['_VALIDATIONERROR']._serialized_start=883
+  _globals['_VALIDATIONERROR']._serialized_end=962
+  _globals['_FIELDVIOLATION']._serialized_start=964
+  _globals['_FIELDVIOLATION']._serialized_end=1036
+  _globals['_RESOURCENOTFOUND']._serialized_start=1038
+  _globals['_RESOURCENOTFOUND']._serialized_end=1126
+  _globals['_AUTHENTICATIONERROR']._serialized_start=1128
+  _globals['_AUTHENTICATIONERROR']._serialized_end=1173
 # @@protoc_insertion_point(module_scope)
