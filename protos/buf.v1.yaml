@@ -9,6 +9,6 @@ plugins:
       - protos.md
     strategy: all
   - plugin: buf.build/protocolbuffers/python:v27.2
-    out: ../app/entity/v1
+    out: ../app/pkg/entity/v1
   - plugin: buf.build/protocolbuffers/pyi
-    out: ../app/entity/v1
+    out: ../app/pkg/entity/v1
