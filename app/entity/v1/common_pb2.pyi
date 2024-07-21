@@ -5,6 +5,18 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class request(_message.Message):
+    __slots__ = ("url", "proxy", "depth", "retryDuration")
+    URL_FIELD_NUMBER: _ClassVar[int]
+    PROXY_FIELD_NUMBER: _ClassVar[int]
+    DEPTH_FIELD_NUMBER: _ClassVar[int]
+    RETRYDURATION_FIELD_NUMBER: _ClassVar[int]
+    url: str
+    proxy: str
+    depth: int
+    retryDuration: int
+    def __init__(self, url: _Optional[str] = ..., proxy: _Optional[str] = ..., depth: _Optional[int] = ..., retryDuration: _Optional[int] = ...) -> None: ...
+
 class product(_message.Message):
     __slots__ = ("title", "price", "imageSource", "createdAt", "updatedAt")
     TITLE_FIELD_NUMBER: _ClassVar[int]

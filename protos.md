@@ -5,6 +5,7 @@
 
 - [common.proto](#common-proto)
     - [product](#scrape-py-v1-product)
+    - [request](#scrape-py-v1-request)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -25,11 +26,29 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| title | [string](#string) |  | Description of the product |
-| price | [string](#string) |  | Price of the produce |
+| title | [string](#string) |  | Title or name of the product |
+| price | [string](#string) |  | Price of the product as a string It can include currency symbols. |
 | imageSource | [string](#string) |  | URL or path to the product image |
-| createdAt | [google.protobuf.Timestamp](#google-protobuf-Timestamp) | optional | Timestamp when product entry was first persisted |
-| updatedAt | [google.protobuf.Timestamp](#google-protobuf-Timestamp) | optional | Timestamp when product entry was last updated |
+| createdAt | [google.protobuf.Timestamp](#google-protobuf-Timestamp) | optional | Timestamp when the product entry was first created |
+| updatedAt | [google.protobuf.Timestamp](#google-protobuf-Timestamp) | optional | Timestamp when the product entry was last updated |
+
+
+
+
+
+
+<a name="scrape-py-v1-request"></a>
+
+### request
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| url | [string](#string) |  | The URL of the web page to be scraped. |
+| proxy | [string](#string) | optional | An optional proxy server to be used for the request. If not provided, the request will be made directly. |
+| depth | [int32](#int32) |  | The depth of the scraping, indicating how many levels deep the scraper should follow links on the page. |
+| retryDuration | [int32](#int32) | optional | An optional duration (in seconds) to wait before retrying the request in case of a failure. If not provided, a default retry duration may be used. |
 
 
 

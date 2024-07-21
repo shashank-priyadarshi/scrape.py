@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0c\x63ommon.proto\x12\x0cscrape.py.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf1\x01\n\x07product\x12\x14\n\x05title\x18\x01 \x01(\tR\x05title\x12\x14\n\x05price\x18\x02 \x01(\tR\x05price\x12 \n\x0bimageSource\x18\x03 \x01(\tR\x0bimageSource\x12=\n\tcreatedAt\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00R\tcreatedAt\x88\x01\x01\x12=\n\tupdatedAt\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\tupdatedAt\x88\x01\x01\x42\x0c\n\n_createdAtB\x0c\n\n_updatedAtBq\n\x10\x63om.scrape.py.v1B\x0b\x43ommonProtoP\x01\xa2\x02\x03SPX\xaa\x02\x0cScrape.Py.V1\xca\x02\x0cScrape\\Py\\V1\xe2\x02\x18Scrape\\Py\\V1\\GPBMetadata\xea\x02\x0eScrape::Py::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0c\x63ommon.proto\x12\x0cscrape.py.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x93\x01\n\x07request\x12\x10\n\x03url\x18\x01 \x01(\tR\x03url\x12\x19\n\x05proxy\x18\x02 \x01(\tH\x00R\x05proxy\x88\x01\x01\x12\x14\n\x05\x64\x65pth\x18\x03 \x01(\x05R\x05\x64\x65pth\x12)\n\rretryDuration\x18\x04 \x01(\x05H\x01R\rretryDuration\x88\x01\x01\x42\x08\n\x06_proxyB\x10\n\x0e_retryDuration\"\xf1\x01\n\x07product\x12\x14\n\x05title\x18\x01 \x01(\tR\x05title\x12\x14\n\x05price\x18\x02 \x01(\tR\x05price\x12 \n\x0bimageSource\x18\x03 \x01(\tR\x0bimageSource\x12=\n\tcreatedAt\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00R\tcreatedAt\x88\x01\x01\x12=\n\tupdatedAt\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\tupdatedAt\x88\x01\x01\x42\x0c\n\n_createdAtB\x0c\n\n_updatedAtBq\n\x10\x63om.scrape.py.v1B\x0b\x43ommonProtoP\x01\xa2\x02\x03SPX\xaa\x02\x0cScrape.Py.V1\xca\x02\x0cScrape\\Py\\V1\xe2\x02\x18Scrape\\Py\\V1\\GPBMetadata\xea\x02\x0eScrape::Py::V1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,6 +33,8 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'common_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\020com.scrape.py.v1B\013CommonProtoP\001\242\002\003SPX\252\002\014Scrape.Py.V1\312\002\014Scrape\\Py\\V1\342\002\030Scrape\\Py\\V1\\GPBMetadata\352\002\016Scrape::Py::V1'
-  _globals['_PRODUCT']._serialized_start=64
-  _globals['_PRODUCT']._serialized_end=305
+  _globals['_REQUEST']._serialized_start=64
+  _globals['_REQUEST']._serialized_end=211
+  _globals['_PRODUCT']._serialized_start=214
+  _globals['_PRODUCT']._serialized_end=455
 # @@protoc_insertion_point(module_scope)
