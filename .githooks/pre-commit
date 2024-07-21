@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Function to determine and tag the next version
+next_version() {
+  if next_version=$(svu next); then
+    if ! git tag "$next_version" &> /dev/null; then
+      printf "\n%s version tag already exists or failed to tag\n" "$next_version"
+    else
+      printf '\nTagged next version: %s\n' "$next_version"
+    fi
+  else
+    printf "\nFailed to determine next version.\n"
+    exit 1
+  fi
+}
+
+echo "Performing other code quality checks..."
+prospector || exit 1
+mypy . || exit 1
+radon mi . || exit 1
+bandit -r . || exit 1
+isort . --check-only || exit 1
+echo "All checks passed!"
+
+## TODO: go test script to compare code coverage changes
+
+# Get the next version and tag it
+if ! version=$(next_version); then
+  exit 1
+fi
+
+# Update CHANGELOG
+if command -v git-cliff &> /dev/null; then
+  if ! git cliff -o CHANGELOG.md; then
+    printf "\nFailed to generate changelog using git-cliff.\n"
+    exit 1
+  fi
+else
+  printf "\nChangelog generators unavailable\n"
+  exit 1
+fi
