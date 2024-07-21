@@ -1,11 +1,9 @@
-from abc import abstractmethod
 from typing import Any, Dict
 
 from ..abstract import Database
 
 
-class Relational(Database):
-    @abstractmethod
+class _Relational(Database):
     def __init__(self, db_path: str):
         """Initializes a new instance of Relational.
 
@@ -33,3 +31,7 @@ class Relational(Database):
 
     def delete(self, identifier: Any):
         raise NotImplementedError
+
+
+def _new() -> _Relational:
+    return _Relational("")

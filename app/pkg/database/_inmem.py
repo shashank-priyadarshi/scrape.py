@@ -1,11 +1,9 @@
-from abc import abstractmethod
 from typing import Any, Dict
 
 from ..abstract import Database
 
 
-class InMemory(Database):
-    @abstractmethod
+class _InMemory(Database):
     def __init__(self):
         """
             Initializes a new instance of Relational.
@@ -42,3 +40,7 @@ class InMemory(Database):
             print(f"Deleted record with ID {identifier}.")
         else:
             raise KeyError(f"Record with ID {identifier} not found.")
+
+
+def _new() -> _InMemory:
+    return _InMemory()
