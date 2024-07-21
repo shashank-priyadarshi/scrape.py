@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package scrape.py.v1;
+
+message product {
+  // Description of the product
+  string title = 1;
+  //  Price of the produce
+  string price = 2;
+  // URL or path to the product image
+  string imageSource = 3;
+
+  // Timestamp when product entry was first persisted
+  optional google.protobuf.Timestamp createdAt = 4;
+  // Timestamp when product entry was last updated
+  optional google.protobuf.Timestamp updatedAt = 5;
+}
