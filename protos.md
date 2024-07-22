@@ -8,10 +8,10 @@
     - [FieldViolation](#scrape-py-v1-FieldViolation)
     - [InternalServerError](#scrape-py-v1-InternalServerError)
     - [ResourceNotFound](#scrape-py-v1-ResourceNotFound)
-    - [Response](#scrape-py-v1-Response)
     - [ValidationError](#scrape-py-v1-ValidationError)
     - [product](#scrape-py-v1-product)
     - [request](#scrape-py-v1-request)
+    - [response](#scrape-py-v1-response)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -86,26 +86,6 @@
 
 
 
-<a name="scrape-py-v1-Response"></a>
-
-### Response
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| status_code | [int32](#int32) |  | HTTP status code |
-| message | [string](#string) |  | User-friendly error message |
-| internal_error | [InternalServerError](#scrape-py-v1-InternalServerError) |  |  |
-| validation_error | [ValidationError](#scrape-py-v1-ValidationError) |  |  |
-| not_found | [ResourceNotFound](#scrape-py-v1-ResourceNotFound) |  |  |
-| unauthorized | [AuthenticationError](#scrape-py-v1-AuthenticationError) |  |  |
-
-
-
-
-
-
 <a name="scrape-py-v1-ValidationError"></a>
 
 ### ValidationError
@@ -152,6 +132,26 @@
 | proxy | [string](#string) | optional | An optional proxy server to be used for the request. If not provided, the request will be made directly. |
 | depth | [int32](#int32) |  | The depth of the scraping, indicating how many levels deep the scraper should follow links on the page. |
 | retryDuration | [int32](#int32) | optional | An optional duration (in seconds) to wait before retrying the request in case of a failure. If not provided, a default retry duration may be used. |
+
+
+
+
+
+
+<a name="scrape-py-v1-response"></a>
+
+### response
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status_code | [int32](#int32) |  | HTTP status code |
+| message | [string](#string) |  | User-friendly error message |
+| internal_error | [InternalServerError](#scrape-py-v1-InternalServerError) |  |  |
+| validation_error | [ValidationError](#scrape-py-v1-ValidationError) |  |  |
+| not_found | [ResourceNotFound](#scrape-py-v1-ResourceNotFound) |  |  |
+| unauthorized | [AuthenticationError](#scrape-py-v1-AuthenticationError) |  |  |
 
 
 

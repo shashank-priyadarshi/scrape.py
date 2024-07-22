@@ -33,7 +33,7 @@ message request {
   optional int32 retryDuration = 4;
 }
 
-message Response {
+message response {
   // HTTP status code
   int32 status_code = 1;
 

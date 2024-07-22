@@ -32,7 +32,7 @@ class request(_message.Message):
     retryDuration: int
     def __init__(self, url: _Optional[str] = ..., proxy: _Optional[str] = ..., depth: _Optional[int] = ..., retryDuration: _Optional[int] = ...) -> None: ...
 
-class Response(_message.Message):
+class response(_message.Message):
     __slots__ = ("status_code", "message", "internal_error", "validation_error", "not_found", "unauthorized")
     STATUS_CODE_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
