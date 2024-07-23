@@ -24,7 +24,7 @@ class Builder:
         self.logger = get_logger()
         self.db = self.get_db()
         self.notifier = self.get_notification()
-        self.scraper = get_scraper()
+        self.scraper = self.get_scraper()
         self.service = self.get_services()
         self.routers = self.get_routers()
 
@@ -46,6 +46,15 @@ class Builder:
         """
         return new_notifier(self._notification_type)
 
+    def get_scraper(self):
+        """
+        Initialize and return the scraper based on the provided type.
+
+        Returns:
+            Scraper: An instance of the specified scraper type.
+        """
+        return new_scraper(self.logger, self.db, self.notifier)
+
     def get_services(self):
         """
         Initialize and return the services based on the provided type.
@@ -53,7 +62,7 @@ class Builder:
         Returns:
             Service: An instance of the specified service type.
         """
-        return new_services(self.logger, self.db, self.notifier, get_scraper())
+        return new_services(self.logger, self.scraper)
 
     def get_routers(self):
         """
@@ -67,13 +76,3 @@ class Builder:
 
 def get_logger():
     return LoggerSingleton().get_logger()
-
-
-def get_scraper():
-    """
-    Initialize and return the scraper based on the provided type.
-
-    Returns:
-        Scraper: An instance of the specified scraper type.
-    """
-    return new_scraper()

@@ -40,7 +40,6 @@ class ScrapeRouter:
 
         try:
             response = await self.service.scraper.scrape_and_save(r)
-            self.logger.info("Response from service: %s", response)
             return {"status": response.status_code, "message": response.message}
         except Exception as e:
             self.logger.error("Error in scrape_and_save: %s", str(e))
