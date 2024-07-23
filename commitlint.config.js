@@ -77,7 +77,7 @@ module.exports = {
                 'setup'
             ]
         ],
-        'scope-max-length': [2, 'always', 12],
+        'scope-max-length': [2, 'always', 30],
         'signed-off-by': [2, 'always'],
         'subject-empty': [2, 'never'],
         'subject-full-stop': [2, 'never'],
