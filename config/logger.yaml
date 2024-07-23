@@ -1,8 +1,10 @@
 version: 1
+
 formatters:
   detailed:
     class: logging.Formatter
-    format: '%(asctime)s %(name)-15s %(levelname)-8s %(message)s'
+    format: '[%(filename)s:%(lineno)d] %(asctime)s %(name)-15s %(levelname)-8s %(message)s'
+#    format: '[%(pathname)s:%(lineno)d] %(asctime)s %(name)-15s %(levelname)-8s %(message)s'
 
 handlers:
   console:
@@ -18,9 +20,9 @@ handlers:
     filename: app.log
 
 loggers:
-  sampleLogger:
+  scrape.py.app:
     level: DEBUG
-    handlers: [console, file]
+    handlers: [ console, file ]
     propagate: no
 
   uvicorn:
@@ -30,4 +32,10 @@ loggers:
 
 root:
   level: DEBUG
-  handlers: [console]
+  handlers: [ console ]
+
+coloredlogs:
+  level: DEBUG
+  fmt: '[%(pathname)s:%(lineno)d] %(asctime)s %(name)-15s %(levelname)-8s %(message)s'
+  #  fmt: '[%(filename)s:%(lineno)d] %(asctime)s %(name)-15s %(levelname)-8s %(message)s'
+  datefmt: '%Y-%m-%d %H:%M:%S'
