@@ -4,8 +4,8 @@ import os
 import sys
 from threading import Lock
 
-import yaml
 import coloredlogs
+import yaml
 
 
 class LoggerSingleton:
@@ -17,7 +17,7 @@ class LoggerSingleton:
             with cls._lock:
                 if cls._instance is None:
                     cls._instance = super().__new__(cls)
-                    config_path = os.getenv('LOGGING_CONFIG_PATH', 'default_logging.yaml')
+                    config_path = os.getenv('CONFIG_PATH', 'default_logging.yaml')
                     cls._initialize_logging(config_path)
                     cls.logger = logging.getLogger(os.getenv('LOGGER_NAME', 'application'))
         return cls._instance

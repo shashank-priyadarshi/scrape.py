@@ -62,7 +62,7 @@ class Builder:
         Returns:
             Service: An instance of the specified service type.
         """
-        return new_services(self.logger, self.scraper)
+        return new_services(self.logger, self.db, self.scraper)
 
     def get_routers(self):
         """

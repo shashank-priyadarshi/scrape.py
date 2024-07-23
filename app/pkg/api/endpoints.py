@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
 
 from ..entity.v1.common_pb2 import request
@@ -22,10 +22,21 @@ class ScrapeRouter:
         self.router = _router
         self.router.post("/scrape")(self.scrape_page)
 
-    async def scrape_page(self, req_body: Request):
+    async def scrape_page(self, req_body: Request, authorization: str = Header(None)):
+        token = None
+        if authorization:
+            token = authorization.replace('Bearer ', '')
+
+        if token:
+            claims = self.service.auth.verify_jwt(token)
+            if not claims:
+                raise HTTPException(status_code=401, detail="Invalid or expired JWT")
+        else:
+            token = self.service.auth.create_jwt()
+            raise HTTPException(status_code=201, detail="Missing Bearer Token. Use this token: {}".format(token))
+
         r = request()
 
-        # TODO: Add request body validation
         # TODO: Migrate from Pydantic JSON to ProtoBuf
         try:
             r.url = req_body.url
