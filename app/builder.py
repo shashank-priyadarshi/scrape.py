@@ -1,5 +1,6 @@
 from pkg.api.api import new as new_routers
 from pkg.database import new as new_database
+from pkg.logger.logger import LoggerSingleton
 from pkg.notification import new as new_notifier
 from pkg.scraper import new as new_scraper
 from pkg.service import new as new_services
@@ -20,9 +21,10 @@ class Builder:
         self._scraper_type = scraper_type
 
         # Initialize singleton instances
+        self.logger = get_logger()
         self.db = self.get_db()
         self.notifier = self.get_notification()
-        self.scraper = self.get_scraper()
+        self.scraper = get_scraper()
         self.service = self.get_services()
         self.routers = self.get_routers()
 
@@ -44,15 +46,6 @@ class Builder:
         """
         return new_notifier(self._notification_type)
 
-    def get_scraper(self):
-        """
-        Initialize and return the scraper based on the provided type.
-
-        Returns:
-            Scraper: An instance of the specified scraper type.
-        """
-        return new_scraper(self._scraper_type, self.notifier)
-
     def get_services(self):
         """
         Initialize and return the services based on the provided type.
@@ -60,7 +53,7 @@ class Builder:
         Returns:
             Service: An instance of the specified service type.
         """
-        return new_services(self.db, self.notifier, self.scraper)
+        return new_services(self.logger, self.db, self.notifier, get_scraper())
 
     def get_routers(self):
         """
@@ -69,4 +62,18 @@ class Builder:
         Returns:
             Router: The configured API routers.
         """
-        return new_routers(self.service).v1routes
+        return new_routers(self.logger, self.service).v1routes
+
+
+def get_logger():
+    return LoggerSingleton().get_logger()
+
+
+def get_scraper():
+    """
+    Initialize and return the scraper based on the provided type.
+
+    Returns:
+        Scraper: An instance of the specified scraper type.
+    """
+    return new_scraper()
